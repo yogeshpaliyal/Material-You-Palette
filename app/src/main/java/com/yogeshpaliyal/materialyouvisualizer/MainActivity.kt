@@ -16,8 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.yogeshpaliyal.materialyouvisualizer.ui.theme.MaterialYouVisualizerTheme
@@ -97,7 +97,6 @@ fun PaletteViewer() {
             )
         }
 
-
         Row(modifier = Modifier.fillMaxWidth()) {
             ColorBox(
                 name = "Tertiary",
@@ -113,7 +112,6 @@ fun PaletteViewer() {
                 textColor = MaterialTheme.colorScheme.onTertiaryContainer
             )
         }
-
 
         Row(modifier = Modifier.fillMaxWidth()) {
 
@@ -132,7 +130,6 @@ fun PaletteViewer() {
                 textColor = MaterialTheme.colorScheme.onErrorContainer
             )
         }
-
 
         Row(modifier = Modifier.fillMaxWidth()) {
 
@@ -172,13 +169,21 @@ fun PaletteViewer() {
 }
 
 
+
 @Composable
-fun ColorBox(name: String, modifier: Modifier, color: Color, textColor: Color) {
+fun ColorBox(
+    name: String,
+    modifier: Modifier,
+    color: Color,
+    textColor: Color,
+    height: Dp = 100.dp
+) {
     Box(
         modifier = modifier
             .background(color)
-            .height(100.dp)
+            .height(height),
+        contentAlignment = Alignment.Center,
     ) {
-        Text(name, modifier = Modifier.padding(8.dp), textColor)
+        Text(name, modifier = Modifier.padding(8.dp), textColor, textAlign = TextAlign.Center)
     }
 }
